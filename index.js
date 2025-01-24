@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 
 // Connect to MongoDB
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-mongoose.connect('mongodb+srv://yousefzentral:Yn8qGkFeKWyumWyM@cluster0.ahcbx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', clientOptions).then(() => console.log('Connected to MongoDB')).catch(err => console.log('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGO_URI, clientOptions).then(() => console.log('Connected to MongoDB')).catch(err => console.log('MongoDB connection error:', err));
 
 // Create a new user
 app.post('/api/users', async (req, res) => {
